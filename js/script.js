@@ -1,8 +1,8 @@
 const calculator = {
-  displayValue: '0',
+  displayValue: "0",
   firstOperand: null,
   waitingForSecondOperand: false,
-  operator: null,
+  operator: null
 };
 
 function inputDigit(digit) {
@@ -12,12 +12,13 @@ function inputDigit(digit) {
     calculator.displayValue = digit;
     calculator.waitingForSecondOperand = false;
   } else {
-    calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+    calculator.displayValue =
+      displayValue === "0" ? digit : displayValue + digit;
   }
 }
 
 function inputDecimal(dot) {
-	if (calculator.waitingForSecondOperand === true) return;
+  if (calculator.waitingForSecondOperand === true) return;
 
   // If the `displayValue` does not contain a decimal point
   if (!calculator.displayValue.includes(dot)) {
@@ -27,10 +28,10 @@ function inputDecimal(dot) {
 }
 
 function handleOperator(nextOperator) {
-  const { firstOperand, displayValue, operator } = calculator
+  const { firstOperand, displayValue, operator } = calculator;
   const inputValue = parseFloat(displayValue);
 
-  if (operator && calculator.waitingForSecondOperand)  {
+  if (operator && calculator.waitingForSecondOperand) {
     calculator.operator = nextOperator;
     return;
   }
@@ -45,7 +46,7 @@ function handleOperator(nextOperator) {
     calculator.firstOperand = result;
   }
 
-  if(nextOperator === '√'){
+  if (nextOperator === "√") {
     calculator.displayValue = String(Math.sqrt(inputValue));
   }
 
@@ -54,58 +55,58 @@ function handleOperator(nextOperator) {
 }
 
 const performCalculation = {
-  '+': (a, b) => a + b,
-  '-': (a, b) => a - b,
-  '/': (a, b) => a / b,
-  '*': (a, b) => a * b,
-  '%': (a, b) => a % b,
-  'ⁿ': (a, b) => Math.pow(a, b),
-  '=': (a, b) => b
+  "+": (a, b) => a + b,
+  "-": (a, b) => a - b,
+  "/": (a, b) => a / b,
+  "*": (a, b) => a * b,
+  "%": (a, b) => a % b,
+  ⁿ: (a, b) => Math.pow(a, b),
+  "=": (a, b) => b
 };
 
 function resetCalculator() {
-  calculator.displayValue = '0';
+  calculator.displayValue = "0";
   calculator.firstOperand = null;
   calculator.waitingForSecondOperand = false;
   calculator.operator = null;
 }
 
 function updateDisplay() {
-  const display = document.querySelector('.display');
+  const display = document.querySelector(".display");
   display.value = calculator.displayValue;
 }
 
-function updateOperator(){
-  const display = document.querySelector('.display-operator');
+function updateOperator() {
+  const display = document.querySelector(".display-operator");
   display.value = calculator.operator;
 }
 
 updateDisplay();
 updateOperator();
 
-const keys = document.querySelector('.num-pads');
-keys.addEventListener('click', (event) => {
+const keys = document.querySelector(".num-pads");
+keys.addEventListener("click", event => {
   const { target } = event;
-  if (!target.matches('button')) {
+  if (!target.matches("button")) {
     return;
   }
 
-  if (target.classList.contains('operator')) {
+  if (target.classList.contains("operator")) {
     handleOperator(target.value);
-		updateDisplay();
+    updateDisplay();
     updateOperator();
     return;
   }
 
-  if (target.classList.contains('decimal')) {
+  if (target.classList.contains("decimal")) {
     inputDecimal(target.value);
-		updateDisplay();
+    updateDisplay();
     return;
   }
 
-  if (target.classList.contains('clear')) {
+  if (target.classList.contains("clear")) {
     resetCalculator();
-		updateDisplay();
+    updateDisplay();
     updateOperator();
     return;
   }

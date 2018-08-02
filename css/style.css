@@ -1,20 +1,22 @@
-html{
+html {
   font-size: 60%;
   box-sizing: border-box;
 }
 
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
 
-body{
-  background-color: #8AE1FC;
+body {
+  background-color: #8ae1fc;
 }
 
 .calculator {
-  background-color: #FAF3FD;
+  background-color: #faf3fd;
   border: 1px solid gray;
   position: absolute;
   top: 50%;
@@ -24,7 +26,7 @@ body{
   box-shadow: 2px 5px 2px #888888;
 }
 
-.display{
+.display {
   width: 100%;
   font-size: 6em;
   height: 100px;
@@ -36,7 +38,7 @@ body{
   padding-right: 10px;
 }
 
-.display-operator{
+.display-operator {
   width: 100%;
   position: absolute;
   top: 4%;
@@ -51,7 +53,7 @@ body{
   padding-right: 10px;
 }
 
-.num-pads{
+.num-pads {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
@@ -59,26 +61,34 @@ body{
   padding: 10px;
 }
 
-button{
+button {
   height: 70px;
   border-radius: 3px;
-  border: 1px solid #C9BCCF;
+  border: 1px solid #c9bccf;
   background-color: transparent;
   font-size: 2em;
-  background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0,0,0,.04));
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 0 rgba(255,255,255,.45), inset 0 -1px 0 0 rgba(255,255,255,.15), 0 1px 0 0 rgba(255,255,255,.15);
-  text-shadow: 0 1px rgba(255,255,255,.4);
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    transparent 50%,
+    rgba(0, 0, 0, 0.04)
+  );
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.15),
+    0 1px 0 0 rgba(255, 255, 255, 0.15);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
 }
 
-button:hover{
-  background-color: #8AE1FC;
+button:hover {
+  background-color: #8ae1fc;
 }
 
-.operator{
+.operator {
   color: #337cac;
 }
 
-.clear{
+.clear {
   background-color: #f0595f;
   border-color: #b0353a;
   color: #ffffff;
@@ -86,11 +96,11 @@ button:hover{
   grid-column-end: 4;
 }
 
-.clear:hover{
+.clear:hover {
   background-color: #f17377;
 }
 
-.equal{
+.equal {
   background-color: #2e86c0;
   border-color: #337cac;
   color: #ffffff;
@@ -98,6 +108,6 @@ button:hover{
   grid-column-end: 5;
 }
 
-.equal:hover{
+.equal:hover {
   background-color: #4e9ed4;
 }
